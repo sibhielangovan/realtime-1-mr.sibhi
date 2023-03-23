@@ -1,5 +1,5 @@
 - hosts: all
-  become: true
+  become: ec2-user
   tasks: 
     - name: create new deployment
       command: kubectl apply -f /home/ec2-user/Deployment.yml 
