@@ -1,0 +1,12 @@
+apiVersion: V1
+kind: Service
+metadata: 
+  name: loadbalancer
+Spec:
+  type: Loadbalancer
+  Selector:
+    app: myapp
+  ports:
+    - port: 8080
+      targetport: 80
+      nodePort: 32000
