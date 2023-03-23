@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tomcat-deployment
+  name: sibhi-deployment
 spec: 
   replicas: 2
   selector:
     matchlabels:
-      app: tomcat    
+      app: cb    
   template:
     metadata:
       labels:
         app: myapp
   Spec:
     containers:
-    - name: tomcatlatest
-      image: tomcat
+    - name: mrsibhi
+      image: sibhisky/mr.sibhi_project
       ports:
       - containerPort: 80
