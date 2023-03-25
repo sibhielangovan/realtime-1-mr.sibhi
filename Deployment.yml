@@ -13,7 +13,7 @@ spec:
         app: myapp
   Spec:
     containers:
-    - name: mrsibhi
-      image: sibhisky/mr.sibhi_project
+    - name: sibhi
+      image: sibhisky/sibhi_project
       ports:
       - containerPort: 80
