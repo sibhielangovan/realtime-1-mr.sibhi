@@ -1,4 +1,4 @@
-- hosts: ansible_server
+- hosts: all
   become: ec2-user
   tasks: 
     - name: create docker image
