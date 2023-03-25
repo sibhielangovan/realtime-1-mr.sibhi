@@ -1,5 +1,5 @@
 - hosts: ansible_server
-  become: true
+  become: ec2-user
   tasks: 
     - name: create docker image
       command: docker build -t $JOB_NAME:v1.$BUILD_ID . 
@@ -11,4 +11,4 @@
       command: docker push sibhisky/$JOB_NAME:v1.$BUILD_ID
     - name: push image to dockerhub
       command: docker push sibhisky/$JOB_NAME:latest
-      ignore_errors: yes
+      
