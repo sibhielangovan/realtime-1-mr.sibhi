@@ -1,7 +1,14 @@
-- hosts: all
-  become: ec2-user
+- hosts: ansible_server
+  become: true
   tasks: 
-    - name: create new deployment
-      command: kubectl apply -f /home/ec2-user/Deployment.yml 
-    - name: create new service
-      command: kubectl apply -f /home/ec2-user/Service.yml
+    - name: create docker image
+      command: docker build -t $JOB_NAME:v1.$BUILD_ID . 
+    - name: create tag to image
+      command: docker tag $JOB_NAME:v1.$BUILD_ID  sibhisky/$JOB_NAME:v1.$BUILD_ID
+    - name: create tag to image
+      command: docker tag $JOB_NAME:v1.$BUILD_ID  sibhisky/$JOB_NAME:latest 
+    - name: push image to dockerhub
+      command: docker push sibhisky/$JOB_NAME:v1.$BUILD_ID
+    - name: push image to dockerhub
+      command: docker push sibhisky/$JOB_NAME:latest
+      ignore_errors: yes
