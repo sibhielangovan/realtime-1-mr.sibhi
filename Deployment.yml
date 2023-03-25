@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sibhi-deployment
-spec: 
+  name: loadbalancer-pod
+spec:
   replicas: 2
   selector:
-    matchlabels:
+    matchLabels:
       app: cb    
   template:
     metadata:
@@ -14,6 +14,7 @@ spec:
   Spec:
     containers:
     - name: sibhi
-      image: sibhisky/sibhi_project
+      image: sibhisky/sibhi_project:latest
       ports:
       - containerPort: 80
+
