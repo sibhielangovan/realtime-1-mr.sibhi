@@ -1,5 +1,5 @@
 - hosts: all
-  become: ec2-user
+  become: node
   tasks: 
     - name: create docker image
       command: docker build -t $JOB_NAME:v1.$BUILD_ID . 
